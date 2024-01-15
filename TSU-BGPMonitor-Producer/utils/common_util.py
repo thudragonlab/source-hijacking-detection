@@ -24,7 +24,6 @@ urllib3.disable_warnings()
 
 
 server_name = get_config('server_name')
-server_name = get_config('admin_email')
 admin_email = get_config('admin_email')
 mail_info = get_config('mail_info')
 mail_pass = mail_info['mail_pass']
