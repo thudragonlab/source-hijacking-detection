@@ -145,18 +145,13 @@ def get_latest_bview_online(timestamp,collector="rrc00"):
 
 
 def exception_happen_when_download(e, url, times,limit = 5):
-    with open(LOG_NAME.ERROR_LOG_FILE_NAME.value, 'a+') as error_r:
-        error_r.write(f'\n------------------------------------------\n')
-        if times <= limit:
-            error_r.write(f'Donwload {url} failed, retrying {times + 1} times\n')
-        else:
-            error_r.write(f'URL: Donwload {url} failed\n')
-        error_r.write(f'Exception Date:{datetime.now()}\n')
-        error_r.write(f'Exception Name:{e}\n')
-        error_r.write(f'Exception Args:{e.args}\n')
-        error_r.write(f'\n------------------------------------------\n')
-        error_r.flush()
-        send_email(admin_email,f'''
+    error_r = get_logger(LOG_NAME.ERROR_LOG_FILE_NAME)
+    error_r.error(f'''Donwload {url} failed, retrying {times + 1} times
+                  Exception Date:{datetime.now()}
+                  Exception Name:{e}
+                  Exception Args:{e.args}
+                  ''')
+    send_email(admin_email,f'''
     ------------------------------------------
     Exception Name:{e}
     Exception Args:{e.args}

@@ -160,9 +160,9 @@ def getRoutingData(start_timestamp):
     # New producer
     create_producers(pool)
 
-    my_path = os.path.join(os.getcwd(), 'data', 'update')
-    bview_path = os.path.join(os.getcwd(), 'data', 'bview')
-    dump_bview_path = os.path.join(os.getcwd(), 'data', 'bview_dump')
+    my_path = os.path.join(os.getcwd(),'TSU-BGPMonitor-Producer', 'data', 'update')
+    bview_path = os.path.join(os.getcwd(),'TSU-BGPMonitor-Producer', 'data', 'bview')
+    dump_bview_path = os.path.join(os.getcwd(),'TSU-BGPMonitor-Producer', 'data', 'bview_dump')
     last_timestamp = None
     
     while to_loop():
