@@ -12,27 +12,27 @@ Additionally, the platform has developed various tools useful for network operat
 
 ```txt
 ├── config.json								# Configuration file
-├── example										# Example configuration file
-├── script										# Python script
+├── example								# Example configuration file
+├── script								# Python script
 │   ├── as_info.py
 │   ├── caida.py
 │   ├── domain.py
 │   ├── roa.py
 │   └── whois.py
 │   ├── utils
-├── static										# Static resource
-├── TSU-BGPMonitor-Consumer		# Consumer
-│   ├── logs									# Consumer log files
+├── static								# Static resource
+├── TSU-BGPMonitor-Consumer						# Consumer
+│   ├── logs								# Consumer log files
 │   ├── main.py								# Consumer entry file
-│   ├── src										# Consumer source code
-│   └── utils									# Consumer utils code
-└── TSU-BGPMonitor-Producer		# Producer
+│   ├── src								# Consumer source code
+│   └── utils								# Consumer utils code
+└── TSU-BGPMonitor-Producer						# Producer
     ├── getRoutingData.py					
     ├── main.py								# Producer entry file
     ├── Producer.py
-	├── data										# Producer rib path	
-	├── logs										# Producer log files
-    └── utils									# Producer utils code
+	├── data							# Producer rib path	
+	├── logs							# Producer log files
+    └── utils								# Producer utils code
 ```
 
 ## Requirements
@@ -87,35 +87,35 @@ python3 TSU-BGPMonitor-Consumer/main.py
 ### Output Event format
 ```javascript
 {
-    "hash_0" : "0", 																# Partition key of kafka
-    "event_id" : "168.253.248.0/24-moas1701388889", # Event id
+    "hash_0" : "0", 											# Partition key of kafka
+    "event_id" : "168.253.248.0/24-moas1701388889", 							# Event id
     "prefix" : "168.253.248.0/24", 									# Prefix
     "start_timestamp" : 1701388889.0, 								
     "start_datetime" : "2023-12-01 00:01:29",						
-    "moas_set" : [ "37294", "36913"],								# Moas ASN
+    "moas_set" : [ "37294", "36913"],									# Moas ASN
     "suspicious_as" : "37294",										
     "before_as" : "36913",											
     "before_as_country" : "MW",										
     "before_as_description" : "TELEKOM-NETWORKS-MALAWI",			
     "suspicious_as_country" : "MW",
     "suspicious_as_description" : "TNM",
-    "is_hijack" : false,														# Is hijack event
-    "reason" : "S:(36913, 37294) aligns in ROA",		# The reason of hijack event
-    "level" : "low",																# Event level
-    "level_reason" : "",														# Event level reason
-    "after_as" : "37294",														# The after ASN when event end
+    "is_hijack" : false,										# Is hijack event
+    "reason" : "S:(36913, 37294) aligns in ROA",							# The reason of hijack event
+    "level" : "low",											# Event level
+    "level_reason" : "",										# Event level reason
+    "after_as" : "37294",										# The after ASN when event end
     "end_timestamp" : 1701388951.0,
     "end_datetime" : "2023-12-01 00:02:31",
-    "duration" : "0:1:2",														# The duration of event
-    "event_id_list" : [ 														# Aggregated event id
+    "duration" : "0:1:2",										# The duration of event
+    "event_id_list" : [ 										# Aggregated event id
         "168.253.248.0/24-moas1701388889", 
         "168.253.255.0/24-moas1701388889"
     ],
-    "prefix_list" : [ 															# Aggregated event prefix
+    "prefix_list" : [ 											# Aggregated event prefix
         "168.253.248.0/24", 
         "168.253.255.0/24"
     ],
-    "websites" : {																	# The websites relation to prefix
+    "websites" : {											# The websites relation to prefix
         "168.253.248.0/24" : [],
         "168.253.255.0/24" : []
     }
