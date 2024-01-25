@@ -1,12 +1,12 @@
 # Source Hijacking Detection
 
-Source Hijacking Detection is a real-time hijacking detecting system based on MOAS(Multi-Origin Autonomous System) event. It monitor real-time MOAS event in the global BGP routing table and then use domain knowledge, including information from Whois, ROA (Route Origin Authorization), AS (Autonomous System) relationships, etc., along with predefined rules, to filter out benign events and identify potential hijacking events. The project uses produce-consumer architecture,  the producer gets route data from BGP route feed such as RIPE RIS、RouteViews and Our CGTF RIS([Index of / (cgtf.net)](https://bgp.cgtf.net/)) and the consumer processes route, monitors BGP hijacking events and save them to database. Source Hijacking Detection is only for hijacking detecting, if you want a web-system with frontend,  please refer to  bgpwatch-frontend and bgpwatch-backend.
+Source Hijacking Detection is a real-time hijacking detecting system based on MOAS (Multi-Origin Autonomous System) event. It monitors real-time MOAS events in the global BGP routing table and uses domain knowledge, including information from Whois, ROA (Route Origin Authorization), AS (Autonomous System) relationships, etc., along with predefined rules, to filter out benign events and identify potential hijacking events. The project uses producer-consumer architecture, the producer gets route data, which are from BGP route feeds, such as RIPE RIS, RouteViews, our CGTF RIS ([Index of / (cgtf.net)](https://bgp.cgtf.net/)), and the consumer processes route, and monitors BGP hijacking events, then saves the data to database. Source Hijacking Detection is only for hijacking detecting, if you want a web-system with frontend info, please refer to bgpwatch-frontend and bgpwatch-backend files.
 
 The BGPWatch platform has been developed by researchers and engineers from 19 countries/economies and funded by APNIC Foundation and the Chinese Government. The platform is accessible to the public at https://bgpwatch.cgtf.net.
 
 The platform supports BGP hijack detection, ensures swift response times, sends event warnings via email, assesses the severity of events, and provides event replay capabilities, which are all designed to effectively assist network operators. 
 
-Additionally, the platform has developed various tools useful for network operators to monitor the network, including a dashboard displaying the key AS information, showing forward, reverse and bi-directional routing path, and supporting subscriptions.
+Additionally, the platform has developed various tools useful for network operators to monitor the network, including a dashboard displaying the key AS information, showing forward, reverse and bi-directional routing path.
 
 # Project Structure
 
@@ -14,18 +14,18 @@ Additionally, the platform has developed various tools useful for network operat
 ├── config.json								# Configuration file
 ├── example								# Example configuration file
 ├── script								# Python script
-│   ├── as_info.py
-│   ├── caida.py
-│   ├── domain.py
-│   ├── roa.py
-│   └── whois.py
-│   ├── utils
+│   ├── as_info.py
+│   ├── caida.py
+│   ├── domain.py
+│   ├── roa.py
+│   └── whois.py
+│   ├── utils
 ├── static								# Static resource
 ├── TSU-BGPMonitor-Consumer						# Consumer
-│   ├── logs								# Consumer log files
-│   ├── main.py								# Consumer entry file
-│   ├── src								# Consumer source code
-│   └── utils								# Consumer utils code
+│   ├── logs								# Consumer log files
+│   ├── main.py								# Consumer entry file
+│   ├── src								# Consumer source code
+│   └── utils								# Consumer utils code
 └── TSU-BGPMonitor-Producer						# Producer
     ├── getRoutingData.py					
     ├── main.py								# Producer entry file
